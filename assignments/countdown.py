@@ -13,4 +13,4 @@ while count > 0:
     time.sleep(1)  # wait for 1 second
     count -= 1
 
-print("💥 BOOM! The bomb has detonated at Aptech!")
+print(" BOOM! The bomb has detonated at Aptech!")
