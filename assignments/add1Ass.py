@@ -1,47 +1,55 @@
+
 """
-This program demonstrates basic arithmetic operations in Python.
-It creates two variables and performs:
-
-1. Addition
-2. Subtraction
-3. Multiplication
-4. Division
-
-The result of each operation is displayed with an explanatory message.
+This program is a simple calculator.
+- It takes two numbers as input and an operation (sum, difference, product, quotient).
+- It performs the chosen operation and prints the result.
+- The program keeps running until the user chooses not to continue.
 """
 
-# Create two variables
-num1 = int(input("Enter the first number: "))
-num2 = int(input("Enter the second number: "))
+while True:
+    # user inputs, num1 and num2
+    num1 = int(input("Input your first number: "))
+    num2 = int(input("Enter your second number: "))
 
+    # operation input
+    op = input("Enter your operation: sum \nproduct \nquotient \ndifference \n").lower()
 
-sum = num1 + num2
-difference = num1 - num2
-quotient = num1 / num2
-product = num1 * num2
+    # sum, difference, quotient, product
+    def addition():
+        sum = num1 + num2
+        print(f"This is the sum: {sum}")
 
-# Ask the user which operation they want
-operation = input("Choose an operation (+, -, *, /): ")
+    def diff():
+        difference = num1 - num2
+        print(f"This is the difference: {difference}")
 
-# Perform the chosen operation using if...elif...else
-if operation == "+":
-    result = num1 + num2
-    print(f"This is the sum of the two numbers: {result}")
-elif operation == "-":
-    result = num1 - num2
-    print(f"This is the difference of the two numbers: {result}")
-elif operation == "*":
-    result = num1 * num2
-    print(f"This is the product of the two numbers: {result}")
-elif operation == "/":
-    if num2 != 0:
-        result = num1 / num2
-        print(f"This is the quotient of the two numbers: {result}")
+    def qout():
+        qoutient = num1 / num2
+        print(f"This is the quotient: {qoutient}")
+
+    def prod():
+        product = num1 * num2
+        print(f"This is the product: {product}")
+
+    # conditional operation check
+    if op == "sum": 
+        addition()
+    elif op == "difference":
+        diff()
+    elif op == "quotient":
+        if num2 == 0:
+            print("Undefined (division by zero)")
+        else:
+            qout()
+    elif op == "product":
+        prod()
     else:
-        print("Error: Division by zero is not allowed.")
-else:
-    print("Invalid operation selected. Please choose +, -, * or /.")
+        print("Invalid operator")
 
+    # ask user if they want to continue
+    choice = input("Do you want to continue? (yes/no): ").strip().lower()
+    if choice != "yes":
+        print("Program ended. Goodbye 👋")
+        break
 
-
-
+    print("---- Restarting Calculator ----\n")
